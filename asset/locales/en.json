@@ -1,0 +1,22 @@
+﻿{
+  "NewGame": "New game 🎮",
+  "Settings": "Settings ⚙",
+  "Localization selection": "Localization selection:",
+  "Save": "Save",
+  "Close": "Close",
+  "easy": "Easy 📗",
+  "medium": "Medium 📙",
+  "hard": "Hard 📕",
+  "expert": "Expert 🔥",
+  "choice": "Choice of difficulty level",
+  "Records": "Records 🏆",
+  "time": "Time:",
+  "noRecord": "The record is not set",
+  "Solver": "Solver",
+  "restart": "Restart",
+  "congratulations": "Congratulations",
+  "win": "You win!",
+  "error": "Error 🐞",
+  "error1": "Has no solution",
+  "error2": "Insufficient search depth"
+}
