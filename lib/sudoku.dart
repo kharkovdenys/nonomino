@@ -11,7 +11,7 @@ class GameScreen extends StatefulWidget {
   const GameScreen({Key? key}) : super(key: key);
 
   @override
-  _GameScreenState createState() => _GameScreenState();
+  State<GameScreen> createState() => _GameScreenState();
 }
 
 class DelIntent extends Intent {
@@ -897,6 +897,25 @@ class _GameScreenState extends State<GameScreen> {
           });
     }
 
+    save(String locate) async{
+      context.setLocale(locate.toLocale());
+        setState(() { switch (typegame) {
+          case 0:
+            levelGame = tr('easy');
+            break;
+          case 1:
+            levelGame = tr('medium');
+            break;
+          case 2:
+            levelGame = tr('hard');
+            break;
+          case 3:
+            levelGame = tr('expert');
+            break;
+        }});
+      Navigator.pop(context);
+    }
+
     settingsSudoku() async {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String locate = (prefs.getString('locate') ?? 'en');
@@ -936,25 +955,7 @@ class _GameScreenState extends State<GameScreen> {
                   ElevatedButton(
                     onPressed: () async {
                       await prefs.setString('locate', locate);
-                      await context.setLocale(locate.toLocale());
-                      Future.delayed(const Duration(milliseconds: 100), () {
-                        switch (typegame) {
-                          case 0:
-                            levelGame = tr('easy');
-                            break;
-                          case 1:
-                            levelGame = tr('medium');
-                            break;
-                          case 2:
-                            levelGame = tr('hard');
-                            break;
-                          case 3:
-                            levelGame = tr('expert');
-                            break;
-                        }
-                        setState(() {});
-                      });
-                      Navigator.pop(context);
+                      WidgetsBinding.instance.addPostFrameCallback((_) => save(locate));
                     },
                     child: Text(tr('Save')),
                   ),

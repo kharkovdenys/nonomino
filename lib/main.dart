@@ -56,7 +56,7 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key, title}) : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
     getLocale() async{
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String locate = (prefs.getString('locate') ?? 'en');
-      await context.setLocale(locate.toLocale());
+      WidgetsBinding.instance.addPostFrameCallback((_)=>context.setLocale(locate.toLocale()));
       setState(() {});
     }
     if(!isStart) {
@@ -152,8 +152,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ElevatedButton(
                         onPressed: () async {
                           await prefs.setString('locate', locate);
-                          await context.setLocale(locate.toLocale());
-                          Navigator.pop(context);
+                          WidgetsBinding.instance.addPostFrameCallback((_)=>context.setLocale(locate.toLocale()));
+                          WidgetsBinding.instance.addPostFrameCallback((_)=>Navigator.pop(context));
                         },
                         child: Text(tr('Save')),
                       ),
