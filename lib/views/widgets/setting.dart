@@ -1,11 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:nonomino/services/constants.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-settingsSudoku(context) async {
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  String locate = (prefs.getString('locate') ?? 'en');
+settingsSudoku(context) {
+  String locate = "en";
   showDialog(
       context: context,
       builder: (context) {
@@ -40,12 +38,9 @@ settingsSudoku(context) async {
                 child: Text(tr('Close')),
               ),
               ElevatedButton(
-                onPressed: () async {
-                  await prefs.setString('locate', locate);
-                  WidgetsBinding.instance.addPostFrameCallback(
-                      (_) => context.setLocale(locate.toLocale()));
-                  WidgetsBinding.instance
-                      .addPostFrameCallback((_) => Navigator.pop(context));
+                onPressed: () {
+                  context.setLocale(locate.toLocale());
+                  Navigator.pop(context);
                 },
                 child: Text(tr('Save')),
               ),
