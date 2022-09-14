@@ -1,11 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:nonomino/views/screens/game.dart';
 import 'package:nonomino/views/screens/splash.dart';
 import 'package:nonomino/views/widgets/menu.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
   await EasyLocalization.ensureInitialized();
   runApp(
     EasyLocalization(

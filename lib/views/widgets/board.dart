@@ -6,6 +6,8 @@ import 'package:nonomino/views/screens/game.dart';
 
 createBoard(i, changeIndex) {
   return GridView.count(
+      padding: EdgeInsets.zero,
+      physics: const NeverScrollableScrollPhysics(),
       crossAxisCount: 9,
       children: valueArg.map((int value) {
         int key = i++;
