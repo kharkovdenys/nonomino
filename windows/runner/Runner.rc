@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.chaha" "\0"
-            VALUE "FileDescription", "nonomino" "\0"
+            VALUE "FileDescription", "Nonomino" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "nonomino" "\0"
+            VALUE "InternalName", "Nonomino" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2021 com.chaha. All rights reserved." "\0"
-            VALUE "OriginalFilename", "nonomino.exe" "\0"
-            VALUE "ProductName", "nonomino" "\0"
+            VALUE "OriginalFilename", "Nonomino.exe" "\0"
+            VALUE "ProductName", "Nonomino" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
